@@ -19,7 +19,7 @@ namespace ThermalAdiposer
         {
             base.OnStartup(e);
             ThermalAdiposer.Views.ShellView window = new ShellView();
-            UserViewModel VM = new UserViewModel();
+            MeasurmentViewModel VM = new MeasurmentViewModel();
             window.DataContext = VM;
             window.Show();
         }
