@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ThermalAdiposer.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="65" d:DesignWidth="800">
+             >
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
@@ -18,6 +18,6 @@
         </Menu>
         <Button DockPanel.Dock="Left" Content="_Save Image"/>
         <Button DockPanel.Dock="Left" Content="Select Tool"/>
-        <Button DockPanel.Dock="Left" Content="Spotmeter Tool" Width="296"/>
+        <Button DockPanel.Dock="Left" Content="Spotmeter Tool"/>
     </DockPanel>
 </UserControl>
