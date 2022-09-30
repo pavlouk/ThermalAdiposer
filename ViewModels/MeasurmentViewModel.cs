@@ -6,25 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ThermalAdiposer.Models;
+using ThermalAdiposer.Core;
+using System.Windows;
+using ThermalAdiposer.Views;
 
 namespace ThermalAdiposer.ViewModels
 {
     public class MeasurmentViewModel
     {
         private MeasurmentModel _selectedMeasurment;
-
-        public MeasurmentModel SelectedMeasurment
-        {
-            get { return _selectedMeasurment; }
-            set { _selectedMeasurment = value; }
-        }
         private ObservableCollection<MeasurmentModel> _measurments = new ObservableCollection<MeasurmentModel>();
-
-        public ObservableCollection<MeasurmentModel> Measurments
-        {
-            get { return _measurments; }
-            set { _measurments = value; }
-        }
 
         public MeasurmentViewModel()
         {
@@ -34,35 +25,48 @@ namespace ThermalAdiposer.ViewModels
             _measurments.Add(new MeasurmentModel { Name = "Sp1", Value = 34.0f, X = 30, Y = 66 });
             _measurments.Add(new MeasurmentModel { Name = "Sp2", Value = 34.0f, X = 30, Y = 66 });
         }
-        private ICommand _updateCommand;
-        public ICommand UpdateCommand
+
+        public ObservableCollection<MeasurmentModel> Measurments
+        {
+            get { return _measurments; }
+            set { _measurments = value; }
+        }
+        public MeasurmentModel SelectedMeasurment
+        {
+            get { return _selectedMeasurment; }
+            set { _selectedMeasurment = value; }
+        }
+
+        private void AddMeasurment()
+        {
+            _measurments.Add(new MeasurmentModel { Name = "Li1", Min = 23.0f, Max = 28.3f, Average = 25.2f, X = 30, Y = 66, Width = 44, Height = 70 } );
+        }
+
+        private ICommand _showCommand;
+        public ICommand ShowCommand
         {
             get
             {
-                if (_updateCommand == null)
-                    return new Updater();
-                return _updateCommand;
-            }
-            set
-            {
-                _updateCommand = value;
+                if (_showCommand == null)
+                    _showCommand = new RelayCommand(p => AddMeasurment());
+                return _showCommand;
             }
         }
 
-        private class Updater : ICommand
+        private void UpdateMeasurment()
         {
-            #region ICommand Members  
+            _selectedMeasurment.Name = SideView.;
+        }
 
-            public bool CanExecute(object parameter) => true;
-
-            public event EventHandler CanExecuteChanged;
-
-            public void Execute(object parameter)
+        private ICommand _updtCommand;
+        public ICommand UpdtCommand
+        {
+            get
             {
-
+                if (_updtCommand == null)
+                    _updtCommand = new RelayCommand(p => UpdateMeasurment());
+                return _updtCommand;
             }
-
-            #endregion
         }
     }
 }
