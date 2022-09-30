@@ -13,7 +13,8 @@
         </Grid.RowDefinitions>
         <!--Margin="4,178,12,13"-->
 
-        <ListView Name="UserGrid" Grid.Row="1" ItemsSource="{Binding Measurments}" SelectedItem="{Binding SelectedMeasurent}">
+        <ListView Name="UserGrid" Grid.Row="1" ItemsSource="{Binding Measurments}" 
+                  SelectedItem="{Binding SelectedMeasurment}">
             <ListView.View>
                 <GridView x:Name="grdTest">
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"  Width="50"/>

@@ -55,5 +55,8 @@
         <Button Content="Update" Height="23" HorizontalAlignment="Left" Margin="80,275,0,0" 
                 Name="btnUpdate" VerticalAlignment="Top" Width="141"  
                 Command="{Binding Path=UpdateCommand}" />
+        <Button Content="Add" Height="23" HorizontalAlignment="Left" Margin="80,305,0,0" 
+                Name="btnAdd" VerticalAlignment="Top" Width="141"  
+                Command="{Binding Path=AddCommand}" />
     </Grid>
 </UserControl>
