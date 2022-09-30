@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThermalAdiposer.Core;
 
 namespace ThermalAdiposer.Models
 {
-    public class MeasurmentModel: INotifyPropertyChanged
+    public class MeasurmentModel: ObservableObject
     {
 		private string _name;
 		private float _value;
@@ -108,17 +109,5 @@ namespace ThermalAdiposer.Models
 				OnPropertyChanged(nameof(Height));
 			}
 		}
-
-		#region INotifyPropertyChanged Members  
-
-		public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        #endregion
     }
 }
