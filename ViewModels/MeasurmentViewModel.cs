@@ -12,7 +12,7 @@ using ThermalAdiposer.Views;
 
 namespace ThermalAdiposer.ViewModels
 {
-    public class MeasurmentViewModel
+    public class MeasurmentViewModel: ObservableObject
     {
         private MeasurmentModel _selectedMeasurment;
         private ObservableCollection<MeasurmentModel> _measurments = new ObservableCollection<MeasurmentModel>();
@@ -55,7 +55,7 @@ namespace ThermalAdiposer.ViewModels
 
         private void UpdateMeasurment()
         {
-            _selectedMeasurment.Name = SideView.;
+            OnPropertyChanged(nameof(SelectedMeasurment));
         }
 
         private ICommand _updtCommand;
